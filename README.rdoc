@@ -1,1 +1,70 @@
+= Configurator
 
+Configurator is a configuration toolkit strongly ispired by Sinatra's settings. 
+Thanks to it you can easy implement configuration options to your app, module
+or class. 
+
+== Installation
+
+You can install Configurator simply using rubygems:
+
+  sudo gem install configurator
+  
+...or install it from source:
+
+  git clone git://github.com/nu7hatch/configurator.git
+  cd configurator
+  rake install  
+
+== Basic usage
+
+Configurator is very easy to use. Take a look at simple example. 
+
+  class MyClass do 
+    set :foo, "bar"
+    enable :bar
+    disable :bla
+
+    configure :production
+      enable :bla
+      set :spam, "eggs!"
+    end
+  end
+
+Now you can get configured options directly from your class:
+
+  MyClass.foo => "bar"
+  MyClass.bar => true
+  MyClass.bla => false
+
+... or when current environment is set to <tt>:production</tt>:
+
+  MyClass.bla  => true
+  MyClass.spam => "eggs!"
+
+All settings are also available from objects via <tt>#settings</tt> method:
+
+  obj = MyObject.new
+  obj.settings.foo => "bar"
+  obk.settings.bar => true
+
+<b>Remember!</b> when option is not set then <tt>NoMethodError</tt> will be
+raised after try to get it direcly from class, eg:
+
+  MyObject.set :exist
+  MyObject.exist      => true
+  MyObject.not_exist  => will raise NoMethodError
+  
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Kriss 'nu7hatch' Kowalik. See LICENSE for details.
