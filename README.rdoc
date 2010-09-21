@@ -12,8 +12,8 @@ You can install Konfigurator simply using rubygems:
   
 ...or install it from source:
 
-  git clone git://github.com/nu7hatch/configurator.git
-  cd configurator
+  git clone git://github.com/nu7hatch/konfigurator.git
+  cd konfigurator
   rake install  
 
 == Basic usage
@@ -21,6 +21,8 @@ You can install Konfigurator simply using rubygems:
 Konfigurator is very easy to use. Take a look at simple example. 
 
   class MyClass do 
+    include Konfigurator
+  
     set :foo, "bar"
     enable :bar
     disable :bla
