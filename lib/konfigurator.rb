@@ -1,8 +1,8 @@
 require "yaml"
 
-# Konfigurator is a configuration toolkit strongly ispired by Sinatra's settings. 
-# Thanks to it you can easy implement configuration options to your app, module
-# or class. Take a look at simple example. 
+# Konfigurator is a configuration toolkit strongly ispired by Sinatra framework
+# settings. Thanks to it you can easy implement configuration options to your apps, 
+# modules or classes. Take a look at simple example. 
 #
 #   class MyClass do 
 #     set :foo, "bar"
