@@ -35,27 +35,27 @@ Konfigurator is very easy to use. Take a look at simple example.
 
 Now you can get configured options directly from your class:
 
-  MyClass.foo => "bar"
-  MyClass.bar => true
-  MyClass.bla => false
+  MyClass.foo # => "bar"
+  MyClass.bar # => true
+  MyClass.bla # => false
 
 ... or when current environment is set to <tt>:production</tt>:
 
-  MyClass.bla  => true
-  MyClass.spam => "eggs!"
+  MyClass.bla  # => true
+  MyClass.spam # => "eggs!"
 
 All settings are also available from objects via <tt>#settings</tt> method:
 
   obj = MyObject.new
-  obj.settings.foo => "bar"
-  obk.settings.bar => true
+  obj.settings.foo # => "bar"
+  obk.settings.bar # => true
 
 <b>Remember!</b> when option is not set then <tt>NoMethodError</tt> will be
 raised after try to get it direcly from class, eg:
 
   MyObject.set :exist
-  MyObject.exist      => true
-  MyObject.not_exist  => will raise NoMethodError
+  MyObject.exist      # => true
+  MyObject.not_exist  # => will raise NoMethodError
   
 == Note on Patches/Pull Requests
  
