@@ -1,14 +1,14 @@
-= Configurator
+= Konfigurator
 
-Configurator is a configuration toolkit strongly ispired by Sinatra's settings. 
+Konfigurator is a configuration toolkit strongly ispired by Sinatra's settings. 
 Thanks to it you can easy implement configuration options to your app, module
 or class. 
 
 == Installation
 
-You can install Configurator simply using rubygems:
+You can install Konfigurator simply using rubygems:
 
-  sudo gem install configurator
+  sudo gem install konfigurator
   
 ...or install it from source:
 
@@ -18,7 +18,7 @@ You can install Configurator simply using rubygems:
 
 == Basic usage
 
-Configurator is very easy to use. Take a look at simple example. 
+Konfigurator is very easy to use. Take a look at simple example. 
 
   class MyClass do 
     set :foo, "bar"

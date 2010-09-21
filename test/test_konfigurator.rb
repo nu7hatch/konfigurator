@@ -1,10 +1,10 @@
 require "helper"
 
 class Configured
-  include Configurator
+  include Konfigurator
 end
 
-class TestConfigurator < Test::Unit::TestCase
+class TestKonfigurator < Test::Unit::TestCase
   describe "Configured class" do 
     should "respond to #set" do 
       assert Configured.respond_to?(:set)

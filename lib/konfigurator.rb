@@ -1,6 +1,6 @@
 require "yaml"
 
-# Configurator is a configuration toolkit strongly ispired by Sinatra's settings. 
+# Konfigurator is a configuration toolkit strongly ispired by Sinatra's settings. 
 # Thanks to it you can easy implement configuration options to your app, module
 # or class. Take a look at simple example. 
 #
@@ -38,7 +38,7 @@ require "yaml"
 #   MyObject.set :exist
 #   MyObject.exist      # => true
 #   MyObject.not_exist  # => will raise NoMethodError
-module Configurator
+module Konfigurator
 
   def self.included(base) # :nodoc:
     base.send(:extend, ClassMethods)
@@ -138,4 +138,4 @@ module Configurator
     end
     alias :env :environment
   end # ClassMethods
-end # Configurator
+end # Konfigurator
