@@ -7,12 +7,12 @@ begin
     gem.name = "konfigurator"
     gem.summary = %Q{Configuration toolkit ispired by Sinatra settings.}
     gem.description = <<-DESCR
-      Konfigurator is a configuration toolkit strongly ispired by Sinatra settings. 
-      Thanks to it you can easy implement configuration options to your app, module
-      or class. 
+      Konfigurator is a configuration toolkit strongly ispired by Sinatra framework
+      settings. Thanks to it you can easy implement configuration options to your apps, 
+      modules or classes. 
     DESCR
     gem.email = "kriss.kowalik@gmail.com"
-    gem.homepage = "http://github.com/nu7hatch/configurator"
+    gem.homepage = "http://github.com/nu7hatch/konfigurator"
     gem.authors = ["Kriss 'nu7hatch' Kowalik"]
     gem.add_development_dependency "contest", ">= 0.1.2"
   end
