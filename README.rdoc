@@ -1,6 +1,6 @@
 = Konfigurator
 
-Konfigurator is a configuration toolkit strongly ispired by Sinatra framework
+Konfigurator is a configuration toolkit strongly inspired by Sinatra framework
 settings. Thanks to it you can easy implement configuration options to your apps, 
 modules or classes. Take a look at simple example. 
 

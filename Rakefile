@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "konfigurator"
-    gem.summary = %Q{Configuration toolkit ispired by Sinatra settings.}
+    gem.summary = %Q{Configuration toolkit inspired by Sinatra settings.}
     gem.description = <<-DESCR
       Konfigurator is a configuration toolkit strongly ispired by Sinatra framework
       settings. Thanks to it you can easy implement configuration options to your apps, 
