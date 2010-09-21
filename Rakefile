@@ -1,6 +1,26 @@
 require 'rubygems'
 require 'rake'
 
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "configurator"
+    gem.summary = %Q{Configuration toolkit ispired by Sinatra's settings.}
+    gem.description = <<-DESCR
+      Configurator is a configuration toolkit strongly ispired by Sinatra's settings. 
+      Thanks to it you can easy implement configuration options to your app, module
+      or class. 
+    DESCR
+    gem.email = "kriss.kowalik@gmail.com"
+    gem.homepage = "http://github.com/nu7hatch/configurator"
+    gem.authors = ["Kriss 'nu7hatch' Kowalik"]
+    gem.add_development_dependency "contest", ">= 0.1.2"
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+end
+
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
