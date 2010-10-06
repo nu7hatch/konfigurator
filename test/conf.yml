@@ -1,6 +1,0 @@
-production:
-  foo: bar
-  bla: true
-development: 
-  foo: bla
-  bla: false
