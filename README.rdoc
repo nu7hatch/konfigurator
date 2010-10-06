@@ -1,8 +1,8 @@
 = Konfigurator
 
-Konfigurator is a configuration toolkit strongly inspired by Sinatra framework
-settings. Thanks to it you can easy implement configuration options to your apps, 
-modules or classes. Take a look at simple example. 
+Konfigurator is a flexible configuration toolkit, at the begining strongly 
+inspired by Sinatra framework settings. Now thanks to it you can easy implement 
+configuration options to your apps, modules or classes.  
 
 == Installation
 
@@ -16,7 +16,7 @@ You can install Konfigurator simply using rubygems:
   cd konfigurator
   rake install  
 
-== Basic usage
+== Sinatra-like configuration
 
 Konfigurator is very easy to use. Take a look at simple example. 
 
@@ -27,7 +27,7 @@ Konfigurator is very easy to use. Take a look at simple example.
     enable :bar
     disable :bla
 
-    configure :production
+    configure :production do
       enable :bla
       set :spam, "eggs!"
     end
@@ -56,6 +56,10 @@ raised after try to get it direcly from class, eg:
   MyObject.set :exist
   MyObject.exist      # => true
   MyObject.not_exist  # => will raise NoMethodError
+  
+== DSL-style configuration
+
+...
   
 == Note on Patches/Pull Requests
  
