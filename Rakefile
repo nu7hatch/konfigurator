@@ -5,11 +5,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "konfigurator"
-    gem.summary = %Q{Configuration toolkit inspired by Sinatra settings.}
+    gem.summary = %Q{Small and flexible Configuration toolkit inspired i.a. by Sinatra settings.}
     gem.description = <<-DESCR
-      Konfigurator is a configuration toolkit strongly ispired by Sinatra framework
-      settings. Thanks to it you can easy implement configuration options to your apps, 
-      modules or classes. 
+      Konfigurator is a small and flexible configuration toolkit, which allow you 
+      to configure your apps, classes or modules with DSL-style or Sinatra-like settings.
     DESCR
     gem.email = "kriss.kowalik@gmail.com"
     gem.homepage = "http://github.com/nu7hatch/konfigurator"
