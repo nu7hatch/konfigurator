@@ -1,3 +1,37 @@
+# This module provides configuration with nice-looking DSL syntax. It allow you
+# to configure your apps/classes such like here:
+#
+#     Foo.configure do 
+#       host "127.0.0.1"
+#       port 8080
+#       password "secret"
+#     end
+#
+# But what's important in this kind of configuration, you have to define all possible
+# options first. You can define configuration attributes easy using <tt>#attr_config</tt> 
+# (or <tt>#attr_setting</tt> alias). 
+#
+#    class Foo 
+#      include Konfigurator::DSL
+#
+#      attr_config :host, :port
+#      attr_config :password
+#    end
+#
+# Other use cases behave almost the same as with Konfigurator::Simple:
+#
+#    Foo.host # => "127.0.0.1"
+#    Foo.port # => 8080
+#
+#    Foo.env :production
+#    Foo.configure :production do 
+#      host "production.com"
+#      port 80
+#    end
+#
+#    foo = Foo.new
+#    foo.settings.host # => "production.com"
+#    foo.settings.port # => 80
 module Konfigurator
   module DSL
     def self.included(base) # :nodoc:
@@ -7,6 +41,10 @@ module Konfigurator
     end
     
     module ClassMethods
+      # It defines given configuration attributes.
+      #
+      #   attr_config :host, :port
+      #   attr_config :password
       def attr_config(*attrs)
         attrs.each do |attr|
           self.class.class_eval <<-EVAL 
