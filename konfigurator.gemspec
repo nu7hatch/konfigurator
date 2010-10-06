@@ -5,14 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{konfigurator}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kriss 'nu7hatch' Kowalik"]
-  s.date = %q{2010-09-22}
-  s.description = %q{      Konfigurator is a configuration toolkit strongly ispired by Sinatra framework
-      settings. Thanks to it you can easy implement configuration options to your apps, 
-      modules or classes. 
+  s.date = %q{2010-10-07}
+  s.description = %q{      Konfigurator is a small and flexible configuration toolkit, which allow you 
+      to configure your apps, classes or modules with DSL-style or Sinatra-like settings.
 }
   s.email = %q{kriss.kowalik@gmail.com}
   s.extra_rdoc_files = [
@@ -25,18 +24,22 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "konfigurator.gemspec",
      "lib/konfigurator.rb",
-     "test/conf.yml",
+     "lib/konfigurator/dsl.rb",
+     "lib/konfigurator/simple.rb",
      "test/helper.rb",
-     "test/test_konfigurator.rb"
+     "test/test_dsl.rb",
+     "test/test_simple.rb"
   ]
   s.homepage = %q{http://github.com/nu7hatch/konfigurator}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Configuration toolkit inspired by Sinatra settings.}
+  s.summary = %q{Small and flexible Configuration toolkit inspired i.a. by Sinatra settings.}
   s.test_files = [
-    "test/test_konfigurator.rb",
+    "test/test_dsl.rb",
+     "test/test_simple.rb",
      "test/helper.rb"
   ]
 
