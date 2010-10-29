@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{konfigurator}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kriss 'nu7hatch' Kowalik"]
-  s.date = %q{2010-10-07}
+  s.date = %q{2010-10-29}
   s.description = %q{      Konfigurator is a small and flexible configuration toolkit, which allow you 
       to configure your apps, classes or modules with DSL-style or Sinatra-like settings.
 }
