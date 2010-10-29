@@ -59,6 +59,15 @@ class TestSimple < Test::Unit::TestCase
         assert_equal "bar", subject.foo
       end
     end
+    
+    should "not use envs when use_envs is false" do
+      with_conf_file do |fname|
+        subject.set :environment, :production
+        subject.load_settings(fname, false)
+        assert subject.production
+        assert_equal "bar", subject.production['foo']
+      end
+    end
   end
   
   describe "Object configured with Konfigurator::Simple" do 

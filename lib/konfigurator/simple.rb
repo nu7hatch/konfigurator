@@ -85,9 +85,13 @@ module Konfigurator
       #     bar: true
       #   production: 
       #     bla: foobar
-      def load_settings(fname)
+      def load_settings(fname, use_envs=true)
         conf = YAML.load_file(fname)
-        conf[env.to_s].each {|k,v| set k.to_sym, v }
+        if use_envs
+          conf[env.to_s].each {|k,v| set k.to_sym, v }
+        else
+          conf.each {|k,v| set k.to_sym, v }
+        end
       end
     end # ClassMethods
   end # Simple
