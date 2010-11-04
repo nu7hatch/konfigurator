@@ -1,26 +1,9 @@
-require 'rubygems'
-require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "konfigurator"
-    gem.summary = %Q{Small and flexible Configuration toolkit inspired i.a. by Sinatra settings.}
-    gem.description = <<-DESCR
-      Konfigurator is a small and flexible configuration toolkit, which allow you 
-      to configure your apps, classes or modules with DSL-style or Sinatra-like settings.
-    DESCR
-    gem.email = "kriss.kowalik@gmail.com"
-    gem.homepage = "http://github.com/nu7hatch/konfigurator"
-    gem.authors = ["Kriss 'nu7hatch' Kowalik"]
-    gem.add_development_dependency "contest", ">= 0.1.2"
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
-
+# -*- ruby -*-
+$:.unshift(File.expand_path('../lib', __FILE__))
+require 'konfigurator/version'
+require 'rake/rdoctask'
 require 'rake/testtask'
+
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
@@ -40,13 +23,26 @@ rescue LoadError
   end
 end
 
-task :default => :test
-
-require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "Konfigurator #{version}"
+  rdoc.title = "Konfigurator #{Konfigurator.version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+task :default => :test
+
+desc "Build current version as a rubygem"
+task :build do
+  `gem build konfigurator.gemspec`
+  `mv konfigurator-*.gem pkg/`
+end
+
+desc "Relase current version to rubygems.org"
+task :release => :build do
+  `git tag -am "Version bump to #{Konfigurator.version}" v#{Konfigurator.version}`
+  `git push origin master`
+  `git push origin master --tags`
+  `gem push pkg/konfigurator-#{Konfigurator.version}.gem`
+end
+
