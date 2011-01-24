@@ -51,11 +51,10 @@ module Konfigurator
       def settings
         @settings ||= {}
       end
-      alias :config :settings
       
       # It returns name of current environment.
       def environment
-        settings[:environment] ||= settings[:env] || ENV["APP_ENV"] || :development
+        settings[:environment] ||= settings[:env] || ENV["RAILS_ENV"] || ENV["APP_ENV"] || :development
       end
       alias :env :environment
     end # ClassMethods
