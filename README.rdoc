@@ -62,38 +62,69 @@ Not there is also possible to use nice-looking DSL syntax provided by
 <tt>Konfigurator::DSL</tt>. It allow you to configure your apps/classes 
 such like here:
 
-    Foo.configure do 
-      host "127.0.0.1"
-      port 8080
-      password "secret"
-    end
+  Foo.configure do 
+    host "127.0.0.1"
+    port 8080
+    password "secret"
+  end
 
 But what's important in this kind of configuration, you have to define all possible
 options first. You can define configuration attributes easy using <tt>#attr_config</tt> 
 (or <tt>#attr_setting</tt> alias). 
 
-   class Foo 
-     include Konfigurator::DSL
+  class Foo 
+    include Konfigurator::DSL
 
-     attr_config :host, :port
-     attr_config :password
-   end
+    attr_config :host, :port
+    attr_config :password
+  end
 
 Other use cases behave almost the same as with Konfigurator::Simple:
 
-   Foo.host # => "127.0.0.1"
-   Foo.port # => 8080
+  Foo.host # => "127.0.0.1"
+  Foo.port # => 8080
 
-   Foo.env :production
-   Foo.configure :production do 
-     host "production.com"
-     port 80
-   end
+  Foo.env :production
+  Foo.configure :production do 
+    host "production.com"
+    port 80
+  end
 
-   foo = Foo.new
-   foo.settings.host # => "production.com"
-   foo.settings.port # => 80
+  foo = Foo.new
+  foo.settings.host # => "production.com"
+  foo.settings.port # => 80
+
+== Configuring Rails 3 application
+
+You can easily mix Konfigurator with your Rails 3 app. Add this line to your <tt>config/application.rb</tt>:
   
+  require 'konfigurator/railtie'
+
+... and now you can set your own configuration, eg:
+
+  module MyApp
+    class Application < Rails::Application
+      set :foo, "Foo"
+      set :bat, "Bar"
+      enable :foobar
+
+      # ...
+    end
+  end
+
+Now you can use it in controllers and views too: 
+
+  class UsersController
+    def index
+      if settings.foobar and settings.foo == "Foo"
+        # ...
+      end
+    end
+  end
+
+  <h1><%= settings.foo %></h1>
+  <p><%= settings.bar %></p>
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
