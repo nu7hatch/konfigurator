@@ -112,7 +112,7 @@ You can easily mix Konfigurator with your Rails 3 app. Add this line to your <tt
     end
   end
 
-Now you can use it in controllers and views too: 
+Now you can use it in controllers... 
 
   class UsersController
     def index
@@ -121,6 +121,8 @@ Now you can use it in controllers and views too:
       end
     end
   end
+
+... and views...
 
   <h1><%= settings.foo %></h1>
   <p><%= settings.bar %></p>
