@@ -1,26 +1,19 @@
 # -*- ruby -*-
+
 $:.unshift(File.expand_path('../lib', __FILE__))
 require 'konfigurator/version'
+require 'rspec/core/rake_task'
 require 'rake/rdoctask'
-require 'rake/testtask'
 
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+  t.rspec_opts = %q[-c -b]
 end
 
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
+RSpec::Core::RakeTask.new(:rcov) do |t|
+  t.rcov = true
+  t.rspec_opts = %q[-c -b]
+  t.rcov_opts = %q[-T -x "spec"]
 end
 
 Rake::RDocTask.new do |rdoc|
@@ -30,7 +23,7 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-task :default => :test
+task :default => :spec
 
 desc "Build current version as a rubygem"
 task :build do
@@ -45,4 +38,3 @@ task :release => :build do
   `git push origin master --tags`
   `gem push pkg/konfigurator-#{Konfigurator.version}.gem`
 end
-
